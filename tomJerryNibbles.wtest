@@ -1,6 +1,6 @@
 import tomJerryNibbles.*
 
-describe "Test de Tom" {
+describe "Grupo de test" {
 
   test "Velocidad máxima inicial de Tom" {
     assert.equals(10, tom.velocidadMaxima())
@@ -42,4 +42,41 @@ describe "Test de Tom" {
     tom.correr(38)
     assert.equals(24, tom.velocidadMaxima())
   }
+
+  test "Tom puede cazar a una distancia de 20" {
+    assert.that(tom.puedeCazar(20))
+  }
+
+  test "Tom no puede cazar a una distancia de 100" {
+    assert.notThat(tom.puedeCazar(110))
+  }
+
+  test "Tom puede cazar a Jerry a una distancia de 30" {
+    tom.cazar(jerry, 30)
+    assert.equals(13.7, tom.velocidadMaxima())
+  }
+
+  test "El peso de beto al ponerse triste es de 30" {
+    beto.ponerseTriste()
+    assert.equals(30, beto.peso())
+  }
+
+  test "El peso de beto al estar feliz es de 40" {
+    beto.ponerseTriste()
+    beto.ponerseFeliz()
+    assert.equals(40, beto.peso())
+  }
+
+  test "Tom puede cazar a Beto a una distancia de 40" {
+    tom.cazar(beto, 40)
+    assert.equals(13.2, tom.velocidadMaxima())
+    
+  }
+
+  test "Tom puede cazar a Beto cuando está triste a una distancia de 40" {
+    beto.ponerseTriste()
+    tom.cazar(beto, 40)
+    assert.equals(12.2, tom.velocidadMaxima())
 }
+}
+

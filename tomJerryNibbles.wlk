@@ -9,7 +9,7 @@ object tom {
         energia -= metros / 2
     }
 
-    method velocidadMaxima() = 5 + energia/10
+    method velocidadMaxima() = energia/10 + 5
 
     method puedeCazar(distancia) = distancia / 2 < energia
 
@@ -39,5 +39,16 @@ object nibbles {
 
 
 object beto {
-    method peso() = 40
+    const pesoInicial = 40
+    var peso = 40
+
+    method ponerseTriste() {
+        peso -= 10
+    }
+
+    method ponerseFeliz() {
+        peso = pesoInicial
+    }
+
+    method peso() = peso
 }
